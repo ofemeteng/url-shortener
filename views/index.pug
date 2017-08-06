@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1(class='title')= title
+  p(class='subtitle') Welcome to #{title} service
+  p How to:
+  ul
+    li Pass a valid URL to the endpoint #[code api/url] like so:
+    code https://shorten-url-api.herokuapp.com/api/url/https://github.com/ofemeteng
+  br
+  p Example output:
+  code { "original_url": "https://github.com/ofemeteng", "short_url": "https://url-shortener-api.herokuapp.com/abc" }
+  br
+  br
+  p Usage: The generated short url #[code https://url-shortener-api.herokuapp.com/abc] redirects to your original url #[code https://github.com/ofemeteng]
