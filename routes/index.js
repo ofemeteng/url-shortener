@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-const uri = process.env.MONGOLAB_URI
+const uri = process.env.MONGOLAB_URI;
 var Uri = require('../models/Uri.model');
 var createErrorResponse = require('../helpers/createErrorResponse');
 

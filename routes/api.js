@@ -1,9 +1,8 @@
-var os = require('os');
 var express = require('express');
 var router = express.Router();
 const shortid = require('shortid');
 var mongoose = require('mongoose');
-const uri = process.env.MONGOLAB_URI
+const uri = process.env.MONGOLAB_URI;
 var Uri = require('../models/Uri.model');
 var createJson = require('../helpers/createJson');
 var createErrorResponse = require('../helpers/createErrorResponse');
@@ -22,9 +21,9 @@ router.get(/^\/url\/(.+)(?:\/(?=$))?$/i, function(req, res, next) {
 			console.log('Connected successfully to mlab database');
 			var short_id = shortid.generate()
 			Uri.findOneOrCreate({original_uri: url}, {_id: short_id, original_uri: url}, function(err, uri) {
-				var hostname = os.hostname();
-				var original_url = uri.original_uri
-				var short_url = `${hostname}/${uri._id}`
+				var host = 'https://shorten-url-api.herokuapp.com';
+				var original_url = uri.original_uri;
+				var short_url = `${host}/${uri._id}`;
 				createJson(res, original_url, short_url);
 			});
 		});		
